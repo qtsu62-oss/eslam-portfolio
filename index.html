@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eslam Mohamed | Cybersecurity Specialist</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark: #0a0e17;
+            --bg-card: #111726;
+            --cyber-green: #10b981;
+            --cyber-blue: #3b82f6;
+            --text-main: #e5e7eb;
+            --text-muted: #9ca3af;
+            --border-color: #1f2937;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-top: 80px; /* للتعويض عن الـ Navbar الثابت */
+        }
+
+        /* شريط التنقل العلوي Navbar */
+        header {
+            background-color: rgba(17, 23, 38, 0.95);
+            border-bottom: 1px solid var(--border-color);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--cyber-green);
+            font-family: 'Fira Code', monospace;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--cyber-green);
+        }
+
+        /* الحاوية العامة للأقسام */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            font-size: 28px;
+            color: var(--cyber-green);
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-weight: 700;
+        }
+
+        /* القسم الرئيسي - هيدر الصفحة الكارت */
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: var(--bg-card);
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--cyber-green), var(--cyber-blue));
+        }
+
+        /* بظبط: الكود الذي يظهر صورتك me.jpg */
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--cyber-green);
+            box-shadow: 0 0 30px rgba(16, 185, 129, 0.4);
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .hero p.subtitle {
+            font-size: 20px;
+            color: var(--cyber-green);
+            font-weight: 600;
+            margin-bottom: 20px;
+            font-family: 'Fira Code', monospace;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero p.bio {
+            color: var(--text-muted);
+            max-width: 650px;
+            margin: 0 auto 30px auto;
+            font-size: 16px;
+        }
+
+        /* محاكاة شاشة الـ Terminal السيبرانية - نفس الشكل والدخلة */
+        .terminal-box {
+            background-color: #05070c;
+            border: 1px solid #22c55e;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: left;
+            direction: ltr;
+            font-family: 'Fira Code', monospace;
+            font-size: 14px;
+            color: #38bdf8;
+            margin: 30px auto;
+            max-width: 550px;
+            box-shadow: inset 0 0 15px rgba(34, 197, 94, 0.15);
+        }
+        .terminal-box .prompt { color: #818cf8; }
+        .terminal-box .command { color: #22c55e; }
+        .terminal-box .output { color: #fff; margin-top: 5px; display: block; }
+        .terminal-box .info { color: #eab308; }
+
+        /* قسم من أنا / عني */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            background: var(--bg-card);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        @media (max-width: 600px) {
+            .info-grid { grid-template-columns: 1fr; }
+            .nav-links { gap: 10px; }
+            .nav-links a { font-size: 12px; }
+            .hero h1 { font-size: 28px; }
+        }
+
+        .info-item {
+            font-size: 17px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .info-item strong {
+            color: var(--cyber-green);
+            font-weight: 700;
+        }
+        .info-item i {
+            color: var(--text-muted);
+            width: 20px;
+            text-align: center;
+        }
+
+        /* قسم المهارات مع أشرطة تقدم */
+        .skills-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+
+        .skill-bar-wrapper {
+            margin-bottom: 20px;
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            color: #fff;
+        }
+
+        .skill-bar {
+            background-color: #1f2937;
+            height: 12px;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid #374151;
+        }
+
+        .skill-progress {
+            background: linear-gradient(90deg, var(--cyber-green), var(--cyber-blue));
+            height: 100%;
+            border-radius: 6px;
+        }
+
+        /* أزرار التواصل الاجتماعي والروابط */
+        .links-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        @media (max-width: 600px) {
+            .links-grid { grid-template-columns: 1fr; }
+        }
+
+        .action-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: #fff;
+            padding: 18px 25px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .action-btn i {
+            font-size: 24px;
+            transition: transform 0.3s;
+        }
+
+        .action-btn:hover {
+            border-color: var(--cyber-green);
+            background-color: #1f2937;
+            transform: translateY(-4px);
+        }
+
+        /* الفوتر السفلي */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 14px;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-color);
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">E_MOHAMED_></a>
+            <ul class="nav-links">
+                <li><a href="#">الرئيسية</a></li>
+                <li><a href="#about">عني</a></li>
+                <li><a href="#skills">المهارات</a></li>
+                <li><a href="#contact">اتصل بي</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <section id="home">
+            <div class="hero">
+                <img src="me.jpg" alt="Eslam Mohamed" class="profile-img">
+                <h1>Eslam Mohamed</h1>
+                <p class="subtitle">Cybersecurity Specialist & Web Developer</p>
+                <p class="bio">مبرمج شغوف بالتكنولوجيا والأمن السيبراني، متخصص في اختبار الاختراق وحماية تطبيقات الويب وتطوير واجهات مستخدم متطورة وآمنة.</p>
+                
+                <div class="terminal-box">
+                    <span class="prompt">eslam@cyber-knight:~$</span> <span class="command">init_portfolio --profile=eslam</span><br>
+                    <span class="output">[+] Loading system modules... DONE</span><br>
+                    <span class="output">[+] Establishing secure connection... <span class="info">[OK]</span></span><br>
+                    <span class="output">[+] Initializing interface... DONE</span><br>
+                    <span class="prompt">eslam@cyber-knight:~$</span> <span class="command">Welcome_to_My_World.sh</span><br>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2 class="section-title"><i class="fa-solid fa-user-shield"></i> من أنا؟</h2>
+            <div class="info-grid">
+                <div class="info-item"><i class="fa-solid fa-id-card"></i> <div><strong>الاسم:</strong> Eslam Mohamed</div></div>
+                <div class="info-item"><i class="fa-solid fa-briefcase"></i> <div><strong>المجال:</strong> Cybersecurity Specialist</div></div>
+                <div class="info-item"><i class="fa-solid fa-code"></i> <div><strong>التخصص الفرعي:</strong> مبرمج ومطور ويب</div></div>
+                <div class="info-item"><i class="fa-solid fa-user-secret"></i> <div><strong>الاسم المستعار:</strong> Cyber Knight</div></div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2 class="section-title"><i class="fa-solid fa-server"></i> مهاراتي وخبراتي</h2>
+            <div class="skills-container">
+                
+                <div class="skill-bar-wrapper">
+                    <div class="skill-info"><span>Cybersecurity & Penetration Testing</span> <span>متقدم</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 85%;"></div></div>
+                </div>
+
+                <div class="skill-bar-wrapper">
+                    <div class="skill-info"><span>Python & Scripting</span> <span>احترافي</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 90%;"></div></div>
+                </div>
+
+                <div class="skill-bar-wrapper">
+                    <div class="skill-info"><span>Linux & Bash</span> <span>متقدم</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 80%;"></div></div>
+                </div>
+
+                <div class="skill-bar-wrapper">
+                    <div class="skill-info"><span>Network Security</span> <span>متوسط</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 75%;"></div></div>
+                </div>
+
+                <div class="skill-bar-wrapper">
+                    <div class="skill-info"><span>HTML5 / CSS3 / JavaScript</span> <span>احترافي</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 88%;"></div></div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2 class="section-title"><i class="fa-solid fa-envelope-open-text"></i> تواصل معي</h2>
+            <div class="links-grid">
+                
+                <a href="https://wa.me/966577560714" target="_blank" class="action-btn">
+                    <span>تواصل عبر واتساب</span>
+                    <i class="fa-brands fa-whatsapp" style="color: #25d366;"></i>
+                </a>
+
+                <a href="tel:+966577560714" class="action-btn">
+                    <span>+966 57 756 0714</span>
+                    <i class="fa-solid fa-phone" style="color: var(--cyber-blue);"></i>
+                </a>
+
+                <a href="https://www.facebook.com/search/top/?q=Eslam%20Mohamed" target="_blank" class="action-btn">
+                    <span>فيسبوك (Eslam Mohamed)</span>
+                    <i class="fa-brands fa-facebook" style="color: #1877f2;"></i>
+                </a>
+
+                <a href="mailto:eslamelshahat04@gmail.com" class="action-btn">
+                    <span>البريد الإلكتروني</span>
+                    <i class="fa-regular fa-envelope" style="color: #fff;"></i>
+                </a>
+
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        &copy; 2026 Eslam Mohamed. جميع الحقوق محفوظة.
+    </footer>
+
+</body>
+</html>
